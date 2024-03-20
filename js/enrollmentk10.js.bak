@@ -1,0 +1,504 @@
+$(document).ready(function () {
+
+    $('#btn_enroll').click(function () {
+
+        var ref_num = $('#ref_number').val();
+        var fname = $('#fname').val();
+        var mname = $('#mname').val();
+        var lname = $('#lname').val();
+        var dob = $('#dob').val();
+        var pob = $('#pob').val();
+        var gender = $('#gender').val();
+        var age = $('#age').val();
+        var nationality = $('#nationality').val();
+        var yearlvl = $('#yearlvl').val();
+        var adds1 = $('#adds1').val();
+        var adds2 = $('#adds2').val();
+        var city = $('#city').val();
+        var state = $('#state').val();
+        var zipcode = $('#zipcode').val();
+        var country = $('#country').val();
+        var religion = $('#religion').val();
+        var contact = $('#contact').val();
+        var email = $('#email').val();
+        var school_name = $('#school_name').val();
+        var school_adds = $('#school_adds').val();
+        var father_fname = $('#father_fname').val();
+        var father_mname = $('#father_mname').val();
+        var father_lname = $('#father_lname').val();
+        var fath_occu = $('#fath_occu').val();
+        var mother_fname = $('#mother_fname').val();
+        var mother_mname = $('#mother_mname').val();
+        var mother_lname = $('#mother_lname').val();
+        var moth_occu = $('#moth_occu').val();
+        var guard_fname = $('#guard_fname').val();
+        var guard_mname = $('#guard_mname').val();
+        var guard_lname = $('#guard_lname').val();
+        var relationship = $('#relationship').val();
+        var sibling1_fname = $('#sibling1_fname').val();
+        var sibling1_mname = $('#sibling1_mname').val();
+        var sibling1_lname = $('#sibling1_lname').val();
+        var prev1_lvl = $('#prev1_lvl').val();
+        var sibling2_fname = $('#sibling2_fname').val();
+        var sibling2_mname = $('#sibling2_mname').val();
+        var sibling2_lname = $('#sibling2_lname').val();
+        var prev2_lvl = $('#prev2_lvl').val();
+
+
+        if (ref_num == "") {
+            // alert("Please Enter Learner Reference Number");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Learner Reference Number',
+                showConfirmButton: true,
+            });
+            $('#ref_number').focus();
+        } else if (fname == "") {
+            // alert("Please Enter First Name");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter First Name',
+                showConfirmButton: true,
+            });
+            $('#fname').focus();
+        } else if (mname == "") {
+            // alert("Please Enter Middle Name");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Middle Name',
+                showConfirmButton: true,
+            });
+            $('#mname').focus();
+        } else if (lname == "") {
+            // alert("Please Enter Last Name");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Last Name',
+                showConfirmButton: true,
+            });
+            $('#lname').focus();
+        } else if (dob == "") {
+            // alert("Please your Date of Birth");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please your Date of Birth',
+                showConfirmButton: true,
+            });
+            $('#dob').focus();
+        } else if (pob == "") {
+            // alert("Please Enter your Place of Birth");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter your Place of Birth',
+                showConfirmButton: true,
+            });
+            $('#pob').focus();
+        } else if (gender == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Gender',
+                showConfirmButton: true,
+            });
+            $('#gender').focus();
+        } else if (age == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Age',
+                showConfirmButton: true,
+            });
+            $('#age').focus();
+        } else if (nationality == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Nationality',
+                showConfirmButton: true,
+            });
+            $('#nationality').focus();
+        } else if (yearlvl == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Year Level',
+                showConfirmButton: true,
+            });
+            $('#yearlvl').focus();
+        } else if (adds1 == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Address 1',
+                showConfirmButton: true,
+            });
+            $('#adds1').focus();
+        } else if (adds2 == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Address 2',
+                showConfirmButton: true,
+            });
+            $('#adds2').focus();
+        } else if (city == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter City',
+                showConfirmButton: true,
+            });
+            $('#city').focus();
+        } else if (state == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter State/Province',
+                showConfirmButton: true,
+            });
+            $('#state').focus();
+        } else if (zipcode == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Zip Code',
+                showConfirmButton: true,
+            });
+            $('#zipcode').focus();
+        } else if (country == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Country',
+                showConfirmButton: true,
+            });
+            $('#country').focus();
+        } else if (religion == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Religion',
+                showConfirmButton: true,
+            });
+            $('#religion').focus();
+        } else if (contact == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Contact',
+                showConfirmButton: true,
+            });
+            $('#contact').focus();
+        } else if (email == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Email',
+                showConfirmButton: true,
+            });
+            $('#email').focus();
+        } else if (school_name == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Previous School Name',
+                showConfirmButton: true,
+            });
+            $('#school_name').focus();
+        } else if (school_adds == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Previous School Address',
+                showConfirmButton: true,
+            });
+            $('#school_adds').focus();
+        } else if (father_fname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Fathers First Name',
+                showConfirmButton: true,
+            });
+            $('#father_fname').focus();
+        } else if (father_mname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Fathers Middle Name',
+                showConfirmButton: true,
+            });
+            $('#father_mname').focus();
+        } else if (father_lname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Fathers Last Name',
+                showConfirmButton: true,
+            });
+            $('#father_lname').focus();
+        } else if (fath_occu == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Fathers Occupation',
+                showConfirmButton: true,
+            });
+            $('#fath_occu').focus();
+        } else if (mother_fname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Mothers First Name',
+                showConfirmButton: true,
+            });
+            $('#mother_fname').focus();
+        } else if (mother_mname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Mothers Middle Name',
+                showConfirmButton: true,
+            });
+            $('#mother_mname').focus();
+        } else if (mother_lname == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Mothers Last Name',
+                showConfirmButton: true,
+            });
+            $('#mother_lname').focus();
+        } else if (moth_occu == "") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Enter Mothers Occupation',
+                showConfirmButton: true,
+            });
+            $('#moth_occu').focus();
+            // } else if (guard_fname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Guardians First Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#guard_fname').focus();
+            // } else if (guard_mname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Guardians Middle Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#guard_mname').focus();
+            // } else if (guard_lname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Guardians Last Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#guard_lname').focus();
+            // } else if (relationship == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Relationship',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#relationship').focus();
+            // } else if (sibling1_fname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister1 First Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling1_fname').focus();
+            // } else if (sibling1_mname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister1 Middle Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling1_mname').focus();
+            // } else if (sibling1_lname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister1 Last Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling1_lname').focus();
+            // } else if (prev1_lvl == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Previous Level',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#prev1_lvl').focus();
+            // } else if (sibling2_fname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister2 First Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling2_fname').focus();
+            // } else if (sibling2_mname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister Middle Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling2_mname').focus();
+            // } else if (sibling2_lname == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Brother/Sister Last Name',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#sibling2_lname').focus();
+            // } else if (prev2_lvl == "") {
+            //     // alert("Please Enter Gender");
+            //     Swal.fire({
+            //         icon: 'info',
+            //         title: 'Please Enter Previous Levels',
+            //         showConfirmButton: true,
+            //     });
+            //     $('#prev2_lvl').focus();
+        } else if ($("#formuploadID").val() == "" || sessionStorage.getItem("isIDUploaded") != "true") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Upload your Photo ID',
+                showConfirmButton: true,
+            });
+            // $('#moth_occu').focus();
+        } else if ($("#formuploadPSA").val() == "" || sessionStorage.getItem("isPSAUploaded") != "true") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Upload your PSA Birth Certificate',
+                showConfirmButton: true,
+            });
+            // $('#moth_occu').focus();
+        } else if ($("#formuploadCard").val() == "" || sessionStorage.getItem("isCARDUploaded") != "true") {
+            // alert("Please Enter Gender");
+            Swal.fire({
+                icon: 'info',
+                title: 'Please Upload your Report Card',
+                showConfirmButton: true,
+            });
+            // $('#moth_occu').focus();
+        } else {
+
+            // var msg = confirm("Do you want to ADD this NEW RECORD?");
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you want to ADD this NEW RECORD?",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#179918',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "online_enrollmentk10.php",
+                        type: "POST",
+                        data: "ref_number=" + ref_num + "&fname=" + fname + "&mname=" + mname + "&lname=" + lname + "&dob=" + dob + "&pob=" + pob +
+                            "&gender=" + gender + "&age=" + age + "&nationality=" + nationality + "&yearlvl=" + yearlvl + "&adds1=" + adds1 + "&adds2=" + adds2 + "&city=" + city + "&state=" + state + "&zipcode=" + zipcode + "&country=" + country +
+                            "&religion=" + religion + "&contact=" + contact + "&email=" + email + "&school_name=" + school_name + "&school_adds=" + school_adds + "&father_fname=" +
+                            father_fname + "&father_mname=" + father_mname + "&father_lname=" + father_lname + "&fath_occu=" + fath_occu +
+                            "&mother_fname=" + mother_fname + "&mother_mname=" + mother_mname + "&mother_lname=" + mother_lname +
+                            "&moth_occu=" + moth_occu + "&guard_fname=" + guard_fname + "&guard_mname=" + guard_mname + "&guard_lname=" +
+                            guard_lname + "&relationship=" + relationship + "&sibling1_fname=" + sibling1_fname + "&sibling1_mname=" +
+                            sibling1_mname + "&sibling1_lname=" + sibling1_lname + "&prev1_lvl=" + prev1_lvl + "&sibling2_fname=" +
+                            sibling2_fname + "&sibling2_mname=" + sibling2_mname + "&sibling2_lname=" + sibling2_lname + "&prev2_lvl=" + prev2_lvl,
+                        success: function (data) {
+                            console.log(data);
+                            console.log(data);
+                            if (data == "ok") {                             
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'User Succesfully Added!',
+                                    showConfirmButton: false,
+                                    // timer: 1500
+                                });
+                                // alert("");
+                                $('#ref_number').val("");
+                                $('#fname').val("");
+                                $('#mname').val("");
+                                $('#lname').val("");
+                                $('#dob').val("");
+                                $('#pob').val("");
+                                $('#gender').val("");
+                                $('#age').val("");
+                                $('#nationality').val("");
+                                $('#yearlvl').val("");
+                                $('#adds1').val("");
+                                $('#adds2').val("");
+                                $('#city').val("");
+                                $('#state').val("");
+                                $('#zipcode').val("");
+                                $('#country').val("");
+                                $('#religion').val("");
+                                $('#contact').val("");
+                                $('#email').val("");
+                                $('#school_name').val("");
+                                $('#school_adds').val("");
+                                $('#father_fname').val("");
+                                $('#father_mname').val("");
+                                $('#father_lname').val("");
+                                $('#fath_occu').val("");
+                                $('#mother_fname').val("");
+                                $('#mother_mname').val("");
+                                $('#mother_lname').val("");
+                                $('#moth_occu').val("");
+                                $('#guard_fname').val("");
+                                $('#guard_mname').val("");
+                                $('#guard_lname').val("");
+                                $('#relationship').val("");
+                                $('#sibling1_fname').val("");
+                                $('#sibling1_mname').val("");
+                                $('#sibling1_lname').val("");
+                                $('#prev1_lvl').val("");
+                                $('#sibling2_fname').val("");
+                                $('#sibling2_lname').val("");
+                                $('#prev2_lvl').val("");
+                                $('#formuploadID').val("");
+                                $('#formuploadPSA').val("");
+                                $('#formuploadCard').val("");
+                            } else if (data == "unset"){
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Please upload file first',
+                                    showConfirmButton: false,
+                                    // timer: 1500
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Add User Failed!' + data,
+                                    showConfirmButton: false,
+                                    // timer: 1500
+                                });
+                            }
+                        }
+                    });
+                }
+            })
+
+
+        }
+    });
+
+});
