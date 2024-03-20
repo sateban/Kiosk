@@ -1,7 +1,17 @@
 
 (function ($) {
-    "use strict";
+    "use strict";  
+    $("#search-input").on("focus", ()=>{
+        $("#search-input").animate({
+            "width": "300px"
+        }, 100);
+    });
 
+    $("#search-input").on("blur", ()=>{
+        $("#search-input").animate({
+            "width": "200px"
+        }, 100);
+    });
 
     /*==================================================================
     [ Focus input ]*/
@@ -15,7 +25,6 @@
             }
         })    
     })
-  
   
     /*==================================================================
     [ Validate ]*/
