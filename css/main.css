@@ -1054,7 +1054,7 @@ button.accordion-button:focus {
 }
 
 .bg {
-  background: url("/./assets/img/rhs_building.jpeg");
+  background: url("./assets/img/rhs_building.jpeg");
   background-repeat: no-repeat;
   filter: brightness(60%);
   /* backdrop-filter: brightness(80%); */
@@ -1084,7 +1084,7 @@ button.accordion-button:focus {
 }
 
 .bg-login {
-  background: url("/./assets/img/rhs_building.jpeg");
+  background: url("./assets/img/rhs_building.jpeg");
   background-repeat: no-repeat;
   filter: brightness(80%);
   /* backdrop-filter: brightness(80%); */
