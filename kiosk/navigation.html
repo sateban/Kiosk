@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      p.login100-form-title {
+        font-family: "Times New Roman", Times, serif;
+        color: red;
+      }
+    </style>
+
+    <title>Kiosk • Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/bootstrap/css/bootstrap.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css" />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animsition/css/animsition.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/select2/select2.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/daterangepicker/daterangepicker.css"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="../css/util.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" />
+    
+
+    <style type="text/css" rel="stylesheet">
+      footer {
+        background: rgb(8, 87, 5);
+        padding: 20px;
+      }
+
+      footer p {
+        color: #fff;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: "Exo", sans-serif;
+      }
+
+      .context {
+        width: 100%;
+        position: absolute;
+        top: 50vh;
+      }
+
+      .context h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 50px;
+      }
+
+      .area {
+        /* background: #4e54c8; */
+        background: #325dad;
+        background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+        width: 100%;
+        height: 100vh;
+      }
+
+      .circles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+      }
+
+      .circles li:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 2s;
+        animation-duration: 12s;
+      }
+
+      .circles li:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 4s;
+      }
+
+      .circles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 18s;
+      }
+
+      .circles li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 3s;
+      }
+
+      .circles li:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 7s;
+      }
+
+      .circles li:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 15s;
+        animation-duration: 45s;
+      }
+
+      .circles li:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 2s;
+        animation-duration: 35s;
+      }
+
+      .circles li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="loginPage" class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <div class="limiter">
+      <div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">RHS</a>
+
+            <!-- Toggle button -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="fa-bars text-light"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+                <li class="nav-item text-center mx-2 mx-lg-1 active">
+                  <a class="nav-link" href="index.html"
+                    ><div>
+                      <i class="fa fa-home fa-lg mb-1"></i>
+                    </div>
+                    Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="student"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <div>
+                      <i class="fa fa-user fa-lg mb-1"></i>
+                      <!-- <span
+                        class="badge rounded-pill badge-notification bg-danger"
+                        >11</span
+                      > -->
+                    </div>
+                    Student
+                  </a>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="student"
+                    id="student-drop"
+                  >
+                    <a class="dropdown-item" href="login.html">Login</a>
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" href="#">User Info</a>
+                  </div>
+                </li>
+                <!-- Incident Report -->
+                <li class="nav-item text-center mx-2 mx-lg-1">
+                  <a class="nav-link" href="#"
+                    ><div>
+                      <i class="fa fa-file-text fa-lg mb-1"></i>
+                      <!-- <span
+                        class="badge rounded-pill badge-notification bg-primary"
+                      >
+                        11
+                      </span> -->
+                    </div>
+                    Incident Report
+                  </a>
+                </li>
+              </ul>
+
+              <form class="form-inline my-2 my-lg-0">
+				<div class="ui-widget">
+                <input
+                  class="form-control mr-sm-2"
+                  type="search"
+				  id="search-input"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <!-- <button
+                  class="btn btn-success my-2 my-sm-0"
+                  type="submit"
+				  style="background: #2f3943; border-color: #657b6a"
+                >
+                  Search
+                </button> -->
+				</div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+      </div>
+
+      <div class="container-login100">
+		
+      </div>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+    
+    <script src="../vendor/animsition/js/animsition.min.js"></script>
+    
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="../vendor/select2/select2.min.js"></script>
+    
+    <script src="../vendor/daterangepicker/moment.min.js"></script>
+    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+    
+    <script src="../vendor/countdowntime/countdowntime.js"></script>
+    
+    <script src="../js/main.js"></script>
+    <script src="../script/jquery-ui.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="module" src="../script/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiosk • Custom Route Map with Image Overlay</title>
+
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="../css/leaflet.css" />
+    <link rel="stylesheet" href="../css/leaflet.draw.css" />
+
+    <!-- Include Leaflet JavaScript -->
+    <script src="../script/leaflet.js"></script>
+    <script src="../script/leaflet.draw.js"></script>
+    <script src="../script/leaflet.motion.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
+    />
+    <style>
+      #map {
+        height: 600px;
+      }
+
+      .user-icon {
+        background-color: transparent;
+      }
+
+      .leaflet-marker-icon.leaflet-div-icon.leaflet-zoom-animated.leaflet-interactive {
+        /* background-color: transparent !important; */
+      }
+
+      .leaflet-control-attribution.leaflet-control {
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <img id="localImage" src="../assets/img/map.png" style="display: none" />
+
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map").setView([0, 0], 4);
+      map.setZoom(map.getZoom() - 2); 
+
+      var imageUrl = "assets/img/rhs.png"; // Update with your local image path
+      console.log(map.getBounds());
+      // Calculate the appropriate bounds for the image overlay
+      var northEast = map.unproject(
+        map.project(map.getBounds()._northEast).add([0, -map.getSize().y])
+      );
+      var southWest = map.unproject(
+        map
+          .project(map.getBounds()._southWest)
+          .add([map.getSize().x, map.getSize().y])
+      );
+
+      // var imageBounds = [[southWest.lat, southWest.lng], [northEast.lat, northEast.lng]];
+      const image = document.getElementById("localImage");
+      const width = image.width;
+      const height = image.height;
+      console.log("Image size:", width, "x", height);
+
+      // Animation
+      var options = {
+        draw: {
+          circle: false, // Turns off this drawing tool
+          rectangle: false,
+          marker: false,
+          circlemarker: false,
+        },
+      };
+
+      // var drawControl = new L.Control.Draw(options);
+		  //   map.addControl(drawControl);
+
+      var pixelCoordinate = { x: 100, y: 50 }; // Example fixed coordinates
+
+      // Convert the pixel coordinate to a geographic LatLng object:
+      var latLng = map.containerPointToLatLng(pixelCoordinate);
+
+      // Example usage:
+      console.log("Latitude:", latLng.lat);
+      console.log("Longitude:", latLng.lng);
+
+      // Calculate the appropriate bounds for the image overlay
+      //  var southWest = map.unproject([0, image.height], map.getMaxZoom() - 1);
+      // var northEast = map.unproject([image.width, 0], map.getMaxZoom() - 1);
+      let multiplier = 1.5;
+      var southWest = L.latLng(-latLng.lat, latLng.lng);
+      var northEast = L.latLng(
+        latLng.lat * multiplier,
+        -latLng.lng * multiplier
+      );
+      // var southWest = L.latLng(0, 0);
+      // var northEast = L.latLng(width * multiplier, height * multiplier);
+      // var northEast = L.latLng(width * multiplier, height * multiplier);
+      // var southWest = L.latLng(-width, -height);
+      // var northEast = L.latLng(height, width);
+      var bounds = L.latLngBounds(southWest, northEast);
+      // var bounds = [[0, 0], [image.height, image.width]];
+
+      // console.log(southWest, northEast);
+
+      var imageBounds = [
+        [-90, -180],
+        [90, 500],
+      ]; // Coordinates for the entire world
+      var imageOverlay = L.imageOverlay(imageUrl, bounds).addTo(map);
+
+      // Add the image overlay
+      // L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+      // Define a set of coordinates for the custom route
+      var routeCoordinates = [
+        // [80.505, -0.09], // London
+        // [48.8566, 2.3522], // Paris
+        // [52.52, 13.405], // Berlin
+        // [55.6761, 12.5683], // Copenhagen
+        // Add more coordinates as needed
+
+        [56.29215668507645, 107.53417968750001],
+        [56.84897198026975, 91.49414062500001],
+        [43.48481212891603, 90.703125],
+        [43.42100882994726, 68.02734375000001],
+      ];
+
+			console.log(routeCoordinates);
+
+      // Create a polyline with the route coordinates
+      // var polyline = L.polyline(routeCoordinates, {
+      //   color: "blue",
+      //   weight: 10,
+      //   dashArray: "0, 0", // Defines pattern: 5px dash, 10px space
+      //   dashOffset: "0",
+      // }).addTo(map);
+
+      // Add markers at each point
+      let c = 0;
+      routeCoordinates.forEach(function (coordinate) {
+        if (c == 0 || c == routeCoordinates.length - 1) {
+          var marker = L.marker(coordinate).addTo(map);
+          // marker.bindPopup("Test").openPopup();
+        }
+        c++;
+      });
+
+
+
+      var startPopup = L.popup()
+        .setContent('<p style="text-align: center">You a here</p>')
+        .setLatLng(routeCoordinates[0]); // Replace with your desired coordinates
+      var destPopup = L.popup()
+        .setContent('<p style="text-align: center">Faculty</p>')
+        .setLatLng(routeCoordinates[routeCoordinates.length - 1]); // Replace with your desired coordinates
+
+      startPopup.addTo(map).openPopup();
+      destPopup.addTo(map).openPopup();
+
+      // You are here
+      // var startPopup = L.popup()
+      //   .setLatLng(routeCoordinates[0])
+      //   .setContent('<p style="text-align: center">You a here.</p>')
+      //   .openOn(map);
+
+      // // Destination
+      // var destPopup = L.popup()
+      // .setLatLng(routeCoordinates[routeCoordinates.length - 1])
+      // .setContent('<p style="text-align: center">Faculty</p>')
+      // .openOn(map);
+
+      // Fit the map to the bounds of the route
+      var bounds = L.latLngBounds(routeCoordinates);
+      map.fitBounds(bounds);
+
+      // Calculate maximum drag bounds based on image overlay bounds
+      var maxBounds = imageOverlay.getBounds();
+      console.log({ maxBounds });
+      // Set maximum drag bounds for the map
+      map.setMaxBounds(maxBounds);
+      map.setMinZoom(3);
+
+      var seqGroup = L.motion.seq([
+					L.motion.polyline(routeCoordinates, {
+					  color: "blue",
+            weight: 10,
+            dashArray: "10, 0-",
+            dashOffset: "0"
+					}, {
+						easing: L.Motion.Ease.easeInOutQuad
+					}, {
+						removeOnEnd: true,
+						icon: L.divIcon({
+              html: "<img class='user-icon' src='assets/img/user.png'>", 
+              className: '',
+              iconSize: L.point(27.5, 24)})
+						// icon: L.divIcon({html: "<i class='fa fa-user fa-2x' aria-hidden='true'></i>", iconSize: L.point(27.5, 24)})
+					}).motionDuration(5000),
+      ]).addTo(map);
+
+      function onMapClick(e) {
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+        console.log("[", lat, ",", lng, "],");
+
+        // You can further process the coordinates here:
+        // - Display them in a popup on the map
+        // - Store them in a variable or array
+        // - Send them to a server using AJAX
+      }
+
+      setTimeout(function () {
+				console.count();
+        // map.fitBounds(bounds);
+        map.flyToBounds(bounds, { duration: 2 } );
+        
+        var rotateControl = L.control({
+          // Optional rotation options (refer to plugin documentation)
+        });
+        // map.setZoom(map.getZoom() + 1); 
+
+        setTimeout(function () {
+				  seqGroup.motionStart();
+        }, 2000);
+			}, 1000);
+
+      // Add click event listener to the map
+      map.on("click", onMapClick);
+    </script>
+  </body>
+</html>

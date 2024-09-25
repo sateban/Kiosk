@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      p.login100-form-title {
+        font-family: "Times New Roman", Times, serif;
+        color: red;
+      }
+    </style>
+
+    <title>Kiosk • Admission</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/bootstrap/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animsition/css/animsition.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/select2/select2.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/daterangepicker/daterangepicker.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/datatable/datatables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/datatable/dataTables.bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../css/util.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" />
+
+    <style type="text/css" rel="stylesheet">
+      footer {
+        background: rgb(8, 87, 5);
+        padding: 20px;
+      }
+
+      footer p {
+        color: #fff;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: "Exo", sans-serif;
+      }
+
+      .context {
+        width: 100%;
+        position: absolute;
+        top: 50vh;
+      }
+
+      .context h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 50px;
+      }
+
+      .area {
+        /* background: #4e54c8; */
+        /* background: #325dad; */
+        /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8); */
+        width: 100%;
+        height: 100vh;
+      }
+
+      .circles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* background: url("/assets/img/rhs_building.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover; */
+      }
+
+      .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+      }
+
+      .circles li:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 2s;
+        animation-duration: 12s;
+      }
+
+      .circles li:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 4s;
+      }
+
+      .circles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 18s;
+      }
+
+      .circles li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 3s;
+      }
+
+      .circles li:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 7s;
+      }
+
+      .circles li:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 15s;
+        animation-duration: 45s;
+      }
+
+      .circles li:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 2s;
+        animation-duration: 35s;
+      }
+
+      .circles li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="loginPage" class="area" style="">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <!-- <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <i class="fa-bars text-light"></i>
+                  </button> -->
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+            <li
+              class="nav-item text-center mx-lg-5 active"
+              style="margin: auto 0"
+            >
+              <a class="navbar-brand" href="#">
+                <img
+                  src="../assets/img/rizal2.png"
+                  width="100"
+                  height="100"
+                  class="d-inline-block align-top rizal-logo"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li class="nav-item text-center">
+              <div class="rizal-text">
+                <!-- <i class="fa fa-home fa-lg mb-1"></i> -->
+                ADMISSION
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-inline my-2 my-lg-0">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0 rizal-text-right"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="admission.html"> Admission</a>
+            </li>
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="document.html"> Document Request</a>
+            </li>
+
+            <li
+              class="nav-item text-center mx-2 mx-lg-3 logout"
+              style="width: 120px"
+            >
+              <a class="nav-link logout-link" id="logout"> LOGOUT </a>
+            </li>
+
+            <!--
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="#">
+                Request
+              </a>
+            </li>
+
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="login.html">
+                Login
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <div class="container-fluid h-100 container-content text-center">
+      <!-- <div class="bg-login"></div> -->
+
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-header">Pre-enrolled</div>
+              <div class="card-body">
+                <h5
+                  class="card-title text-center column-data"
+                  id="data-pre-enrolled"
+                >
+                  <i class="fa fa-spin fa-spinner"></i>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <div class="card-header">Today’s Completed</div>
+              <div class="card-body">
+                <h5 class="card-title text-center" id="completed-enrollment">
+                  <i class="fa fa-spin fa-spinner"></i>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-striped" id="document-table">
+              <thead>
+                <tr>
+                  <th scope="col">Date Time</th>
+                  <th scope="col">LRN (Student ID)</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Year Level Promotion</th>
+                  <th scope="col">Verification</th>
+                  <th scope="col">Contact</th>
+                </tr>
+              </thead>
+              <tbody id="document-tbody">
+                <!-- <tr>
+                  <th>05/08/2024</th>
+                  <th>242342314354</th>
+                  <th>Denver Acosta</th>
+                  <th>Grade 8</th>
+                  <th>Passed</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr>
+                <tr>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr>
+                <tr>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr>
+                <tr>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr>
+                <tr>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>~</th>
+                  <th>
+                    <button type="button" class="btn btn-success">Send</button>
+                  </th>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../vendor/animsition/js/animsition.min.js"></script>
+
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../vendor/select2/select2.min.js"></script>
+
+    <script src="../vendor/daterangepicker/moment.min.js"></script>
+    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script src="../vendor/countdowntime/countdowntime.js"></script>
+    <script
+      type="text/javascript"
+      src="../assets/datatable/datatables.min.js"
+    ></script>
+    <script src="../js/main.js"></script>
+    <script src="../script/jquery-ui.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script>
+      $(document).ready(() => {
+        const connectedRef = _ref();
+        const onValue = _onValue();
+        const get = _get();
+        const child = _child();
+        const onChildAdded = _childAdded();
+
+        onValue(connectedRef, (snapshot) => {
+          const data = snapshot.val();
+          console.count(data);
+
+          if (data) {
+            const result = _ref("enroll");
+            get(child(result, "/")).then((snapshot) => {
+              if (snapshot.exists()) {
+                let data = snapshot.val();
+                let s = "";
+                // console.log(data);
+
+                for (let item in data) {
+                  s += `
+                    <tr>
+                      <th>${item.split("_")[0].replaceAll("-", "/")}</th>
+                      <th class="lrn-sel">${data[item].id}</th>
+                      <th>${data[item].name}</th>
+                      <th>${WhatYear(data[item].grade)}</th>`;
+
+                  if (data[item].isPassed == "Y") {
+                    s += `<th style="background: #c6efce; color: #2c6153">Passed</th>`;
+                  } else if (data[item].isPassed == undefined) {
+                    s += `<th>Database Error</th>`;
+                  } else if (data[item].isPassed == "N") {
+                    s += `<th style="background: #ffc7ce; color: #cf2d06">Failed</th>`;
+                  } else if (data[item].isPassed == "W") {
+                    s += `<th>Processing</th>`;
+                  }
+
+                  s += `<th>
+                        <button type="button" col-id="${item}" class="btn btn-success btn-send">Send</button>
+                      </th>
+                    </tr>
+                  `;
+                }
+
+                $("#document-tbody").html(s);
+                $("#document-table").DataTable({
+                  searching: true,
+                  responsive: true,
+                  // columnDefs: [
+                  //   { visible: false,
+                  //     targets: [0] }
+                  // ],
+                  ordering: true,
+                  order: [[0, "desc"]],
+                  // processing: false,
+                  // serverSide: false,
+                  destroy: true,
+                  info: false,
+                  language: {
+                    emptyTable: "Loading...",
+                    infoEmpty: "No entries to show",
+                  },
+                });
+
+                // For Selection of LRNs
+                $("#document-table tbody").on("click", ".lrn-sel", (e) => {
+                  let col = $(e.target).parent().find("th");
+
+                  let id = $(e.target).attr("col-id");
+                  let dateToday = GetDateGlobal(3);
+                  let lrn = col.eq(1).text();
+                  let name = col.eq(2).text();
+                  let year = col.eq(3).text();
+                  console.log(name);
+
+                  let msg = `
+                  <div style="background-color: #fafafa">
+	<table cellpadding="0" cellspacing="0" style="
+		border-collapse: collapse;
+		border-spacing: 0;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: repeat;
+		background-position: center top;
+		background-color: #fafafa;
+	  " width="100%">
+	  <tbody>
+		<tr>
+		  <td style="padding: 0; margin: 0; background: #fff" valign="top">
+			<table cellpadding="0" cellspacing="0" style="
+				border-collapse: collapse;
+				border-spacing: 0;
+				table-layout: fixed !important;
+				width: 100%;
+			  " align="center">
+			  <tbody>
+				<tr>
+				  <td style="padding: 0; margin: 0" align="center"></td>
+				</tr>
+			  </tbody>
+			</table>
+			<table cellpadding="0" cellspacing="0" style="
+				border-collapse: collapse;
+				border-spacing: 0;
+				table-layout: fixed !important;
+				width: 100%;
+			  " align="center">
+			  <tbody>
+				<tr>
+				  <td style="padding: 0; margin: 0" align="center">
+					<table cellpadding="0" cellspacing="0" style="
+						border-collapse: collapse;
+						border-spacing: 0;
+						background-color: #e0e0e0;
+						width: 95%;
+					  " align="center" bgcolor="#ffffff">
+					  <tbody>
+						<tr>
+						  <td style="
+							  margin: 0;
+							  padding-bottom: 10px;
+							  padding-top: 20px;
+							  padding-left: 20px;
+							  padding-right: 20px;
+							" align="left">
+							<table cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0" width="100%">
+							  <tbody>
+								<tr>
+								  <td style="padding: 0; margin: 0; width: 560px; text-align: center" valign="top">
+                  <img src="../assets/img/default-avatar.png" width="200px" id="student-avatar">  
+                  </td>
+								</tr>
+							  </tbody>
+							</table>
+						  </td>
+						</tr>
+						<tr>
+						  <td style="
+							  margin: 0;
+							  padding-top: 10px;
+							  padding-bottom: 10px;
+							  padding-left: 20px;
+							  padding-right: 20px;
+							" align="left">
+							<table cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0" width="100%">
+							  <tbody>
+								<tr>
+								  <td style="padding: 0; margin: 0; width: 560px" align="center" valign="top">
+									<table cellpadding="0" cellspacing="0" style="
+										border-collapse: separate;
+										border-spacing: 0;
+										border-radius: 5px;
+									  " width="100%" role="presentation">
+									  <tbody>
+										<tr>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											" align="left"> LRN (Student ID) </td>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  border-left: none;
+											  text-align: right;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											"> ${lrn} </td>
+										  <td style="width: 20%"></td>
+										</tr>
+										<tr>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											" align="left"> Name </td>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  border-left: none;
+											  text-align: right;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											"> ${name} </td>
+										  <td style="width: 20%"></td>
+										</tr>
+										<tr>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											" align="left"> Guardian </td>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  border-left: none;
+											  text-align: right;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											"> [Guardian] </td>
+										  <td style="width: 20%"></td>
+										</tr>
+										<tr>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-bottom: none;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											" align="left"> Contact No. </td>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-left: none;
+											  border-bottom: none;
+											  text-align: right;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											"> [ContactNo] </td>
+										  <td style="width: 20%"></td>
+										</tr>
+										<tr>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											" align="left"> Email </td>
+										  <td style="
+											  margin: 0;
+											  padding: 5px;
+											  border: solid 2px #000;
+											  border-left: none;
+											  text-align: right;
+											  font-size: 20px;
+											  font-weight: 400;
+											  font-family: monospace;
+											  width: 40%;
+											"> [Email] </td>
+										  <td style="width: 20%"></td>
+										</tr>
+										<tr>
+										  <td>
+											<br />
+											<br />
+											<br />
+										  </td>
+										</tr>
+									  </tbody>
+									</table>
+									<table class="table table-striped" id="document-student-table">
+										<thead>
+										  <tr>
+											<th scope="col">Date</th>
+											<th scope="col">Grade Level</th>
+											<th scope="col">Form 138</th>
+											<th scope="col">Form 137</th>
+											<th scope="col">Good Moral</th>
+											<th scope="col">Verification</th>
+										  </tr>
+										</thead>
+										<tbody id="document-tbody">`;
+
+                  for (let item in data) {
+                    if (lrn == data[item].id) {
+                      msg += `<tr>`;
+                      msg += `<td>${item
+                        .split("_")[0]
+                        .replaceAll("-", "/")}</td>`;
+                      msg += `<td>${WhatYear(data[item].grade)}</td>`;
+
+                      // Form 137
+                      if (data[item].form137Stat == "P") {
+                        msg += `<td>Passed</td>`;
+                      } else if (data[item].form137Stat == "F") {
+                        msg += `<td>Failed</td>`;
+                      } else if (data[item].form137Stat == "PR") {
+                        msg += `<td>Processing</td>`;
+                      }
+
+                      // Form 138
+                      if (data[item].form137Stat == "P") {
+                        msg += `<td>Passed</td>`;
+                      } else if (data[item].form137Stat == "F") {
+                        msg += `<td>Failed</td>`;
+                      } else if (data[item].form137Stat == "PR") {
+                        msg += `<td>Processing</td>`;
+                      }
+
+                      // Good Moral
+                      if (data[item].form137Stat == "P") {
+                        msg += `<td>Passed</td>`;
+                      } else if (data[item].form137Stat == "F") {
+                        msg += `<td>Failed</td>`;
+                      } else if (data[item].form137Stat == "PR") {
+                        msg += `<td>Processing</td>`;
+                      }
+
+                      if (data[item].isPassed == "Y") {
+                        msg += `<th>Passed</th>`;
+                      } else if (data[item].isPassed == undefined) {
+                        msg += `<th>Database Error</th>`;
+                      } else if (data[item].isPassed == "N") {
+                        msg += `<th>Failed</th>`;
+                      } else if (data[item].isPassed == "W") {
+                        msg += `<th>Processing</th>`;
+                      }
+
+                      msg += `</tr>`;
+                    }
+                  }
+
+                  msg += `</tbody>
+									</table>
+								  </td>
+								</tr>
+								<tr>
+								  <td style="padding: 0; margin: 0; width: 560px" align="center" valign="top"></td>
+								</tr>
+							  </tbody>
+							</table>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+			<table cellpadding="0" cellspacing="0" style="
+				border-collapse: collapse;
+				border-spacing: 0;
+				table-layout: fixed !important;
+				width: 100%;
+			  " align="center">
+			  <tbody>
+				<tr>
+				  <td style="padding: 0; margin: 0" align="center">
+					<table cellpadding="0" cellspacing="0" style="
+						border-collapse: collapse;
+						border-spacing: 0;
+						background-color: transparent;
+						width: 600px;
+					  " align="center" bgcolor="#FFFFFF">
+					  <tbody>
+						<tr>
+						  <td style="padding: 20px; margin: 0" align="left">
+							<table cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0" width="100%">
+							  <tbody>
+								<tr>
+								  <td style="padding: 0; margin: 0; width: 560px" align="center" valign="top">
+									<table cellpadding="0" cellspacing="0" style="
+										border-collapse: collapse;
+										border-spacing: 0;
+									  " width="100%">
+									  <tbody>
+										<tr>
+										  <td style="
+											  padding: 0;
+											  margin: 0;
+											  display: none;
+											" align="center"></td>
+										</tr>
+									  </tbody>
+									</table>
+								  </td>
+								</tr>
+							  </tbody>
+							</table>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+		  </td>
+		</tr>
+	  </tbody>
+	</table>
+	<div class="yj6qo"></div>
+	<div class="adL"></div>
+  </div>`;
+
+                  $("body").css("cursor", "progress");
+                  const userResult = _ref("user");
+                  get(child(userResult, "/")).then((snapshot) => {
+                    if (snapshot.exists()) {
+                      let userData = snapshot.val();
+                      let guardian = "";
+                      let number = "";
+                      let email = "";
+                      let isStudentFound = false;
+
+                      $("body").css("cursor", "auto");
+
+                      for (let item in userData) {
+                        if (lrn == item) {
+                          isStudentFound = true;
+
+                          guardian = userData[item].guardian;
+                          number = userData[item].contact_number;
+                          email = userData[item].email;
+
+                          if (guardian == undefined) {
+                            isStudentFound = false;
+                            guardian = "";
+                          }
+
+                          if (number == undefined) {
+                            isStudentFound = false;
+                            number = "";
+                          }
+
+                          if (email == undefined) {
+                            isStudentFound = false;
+                            email = "";
+                          }
+                        }
+                      }
+
+                      // if(isStudentFound){
+                      msg = msg.replaceAll("[Guardian]", guardian);
+                      msg = msg.replaceAll("[ContactNo]", number);
+                      msg = msg.replaceAll("[Email]", email);
+                      // }
+
+                      Swal.fire({
+                        title: "SEND DOCUMENT REQUEST",
+                        icon: "info",
+                        // html: `You have idled for ${idleThresh / 60}m, <br>you will now be automatically logged out`,
+                        html: `${msg}`,
+                        confirmButtonText: "Okay",
+                        confirmButtonColor: "#198754",
+                        showCancelButton: false,
+                        width: "90%",
+                      }).then((result) => {});
+
+                      StudentIDURL(lrn)
+                        .then((url) => {
+                          $("#student-avatar").attr("src", url);
+                        })
+                        .catch(() => {});
+
+                      $("#document-student-table").DataTable({
+                        searching: true,
+                        responsive: true,
+                        // columnDefs: [
+                        //   { visible: false,
+                        //     targets: [0] }
+                        // ],
+                        ordering: true,
+                        // processing: false,
+                        // serverSide: false,
+                        order: [[0, "desc"]],
+                        destroy: true,
+                        info: false,
+                        language: {
+                          emptyTable: "Loading...",
+                          infoEmpty: "No entries to show",
+                        },
+                      });
+                    }
+                  }); // End of User Promise
+                }); // End of Clickable LRN
+
+                //  For Contact
+                $("#document-table tbody").on("click", ".btn-send", (e) => {
+                  // console.log($(e.target).attr("col-id"));
+                  let col = $(e.target).parent().parent().find("th");
+
+                  let id = $(e.target).attr("col-id");
+                  let dateToday = GetDateGlobal(3);
+                  let lrn = col.eq(1).text();
+                  let name = col.eq(2).text();
+                  let year = col.eq(3).text();
+                  // let contact = $(e.target).attr("col-email");
+
+                  let txt =
+                    "Good Day!\n\nThis is to inform you that your requested document is now available for pick up. Please bring ID for verification purposes. Our office is open from Monday - Friday, 8AM - 5PM.\n\nRegards,\nAdmission";
+                  let msg = `
+       <div style=background-color:#fafafa><table cellpadding=0 cellspacing=0 style="border-collapse:collapse;border-spacing:0;padding:0;margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top;background-color:#fafafa"width=100%><tr><td style=padding:0;margin:0;background:#fff valign=top><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0;table-layout:fixed!important;width:100% align=center><tr><td style=padding:0;margin:0 align=center></table><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0;table-layout:fixed!important;width:100% align=center><tr><td style=padding:0;margin:0 align=center><table cellpadding=0 cellspacing=0 style="border-collapse:collapse;border-spacing:0;background-color:#e0e0e0;border:solid black 2px;width:95%" align=center bgcolor=#ffffff><tr><td style=margin:0;padding-bottom:10px;padding-top:20px;padding-left:20px;padding-right:20px align=left><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0 width=100%><tr><td style=padding:0;margin:0;width:560px align=center valign=top></table><tr><td style=margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px align=left><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0 width=100%><tr><td style=padding:0;margin:0;width:560px align=center valign=top><table cellpadding=0 cellspacing=0 style=border-collapse:separate;border-spacing:0;border-radius:5px width=100% role=presentation><tr><td style="margin:0;padding:5px;border:solid 2px #000;font-size:20px;font-weight:400;font-family:monospace;width:20px!important;background:white"align=left>Date Requested<td style="margin:0;padding:5px;border:solid 2px #000;border-left:none;text-align:right;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white">${dateToday}<td style=width:20%><tr><td><br><br><br><tr><td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white"align=left>LRN (Student ID)<td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;border-left:none;text-align:right;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white">${lrn}<td style=width:20%><tr><td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white"align=left>Name<td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;border-left:none;text-align:right;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white">${name}<td style=width:20%><tr><td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white"align=left>Document Request<td style="margin:0;padding:5px;border:solid 2px #000;border-bottom:none;border-left:none;text-align:right;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white">${year}<td style=width:20%><tr><td style="margin:0;padding:5px;border:solid 2px #000;font-size:20px;font-weight:400;font-family:monospace;width:40%;background:white"align=left>Contact<td style="margin:0;padding:5px" id="td-email"><td style=width:20%><tr><td><br><br><br></table><table cellpadding=0 cellspacing=0 style=border-collapse:separate;border-spacing:0;border-radius:5px width=100% role=presentation><tr><td style=width:100%><textarea placeholder="Input message here" style="width:100%;border:solid 1px #000;height:200px;padding:5px;font-size:20px;font-family:monospace" value="">${txt}</textarea></table><tr><td style=padding:0;margin:0;width:560px align=center valign=top></table></table></table><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0;table-layout:fixed!important;width:100% align=center><tr><td style=padding:0;margin:0 align=center><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0;background-color:transparent;width:600px align=center bgcolor=#FFFFFF><tr><td style=padding:20px;margin:0 align=left><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0 width=100%><tr><td style=padding:0;margin:0;width:560px align=center valign=top><table cellpadding=0 cellspacing=0 style=border-collapse:collapse;border-spacing:0 width=100%><tr><td style=padding:0;margin:0;display:none align=center></table></table></table></table></table><div class=yj6qo></div><div class=adL></div></div>`;
+
+                  Swal.fire({
+                    title: "SEND DOCUMENT REQUEST",
+                    icon: "info",
+                    // html: `You have idled for ${idleThresh / 60}m, <br>you will now be automatically logged out`,
+                    html: `${msg}`,
+                    confirmButtonText: "Send",
+                    confirmButtonColor: "#198754",
+                    showCancelButton: true,
+                    width: "90%",
+                  }).then((result) => {
+                    $("#required-email").off("input");
+
+                    if (result.isConfirmed) {
+                      // If no contact, and custom email has been entered, remove the red icon in the html first before sending
+                      console.log(msg);
+                      // $("#td-email").remove();
+                      msg = msg.replaceAll(
+                        "font-size:unset;display:block",
+                        "font-size:unset;display:none"
+                      );
+                      msg = msg.replaceAll(
+                        "background:#ffc6c6",
+                        "background:#fff"
+                      );
+                      msg = msg.replaceAll(
+                        'id="td-email">',
+                        'id="td-email">' + contact
+                      );
+
+                      var formData = new FormData();
+                      formData.append("email", contact);
+                      // formData.append("message", txt.replaceAll("\n", "<br>"));
+                      formData.append("message", msg);
+
+                      // console.log(formData.get("email"));
+
+                      iziToast.info({
+                        title: "Processing",
+                        message: `Sending Email, please wait...`,
+                        icon: "fa fa-tasks",
+                      });
+
+                      $.ajax({
+                        url: "https://656697eb-cfef-4289-a1dd-7690085a678e-00-sw9o9mqxrpk3.pike.replit.dev/send_email",
+                        method: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        xhrFields: {
+                          // responseType: "blob",
+                        },
+                        success: function (data, textStatus, jqXHR) {
+                          iziToast.destroy();
+                          iziToast.success({
+                            title: "Success",
+                            message: `Email successfully sent to <br><b>${contact}</b>`,
+                          });
+                        },
+                        error: (e) => {
+                          iziToast.destroy();
+                          iziToast.warning({
+                            title: "Email Not Sent",
+                            message: `Please try again later`,
+                          });
+                        },
+                        done: () => {},
+                      });
+                    }
+                  });
+                });
+              }
+            });
+
+            // Table details
+            let completedEnrollment = 0;
+
+            const enrollment = _ref("enroll");
+            RetrieveEnrollment();
+
+            // onChildAdded(enrollment, (data) => {
+            //   g7Count = 0;
+            //   g8Count = 0;
+            //   g9Count = 0;
+            //   g10Count = 0;
+            //   g11Count = 0;
+            //   g12Count = 0;
+            //   // RetrieveEnrollment();
+            //   console.count(data);
+            // });
+
+            function RetrieveEnrollment() {
+              get(child(enrollment, "/")).then((snapshot) => {
+                if (snapshot.exists()) {
+                  let data = snapshot.val();
+
+                  for (let d in data) {
+                    let dataDate = d.split("_")[0];
+                    let currDate = new Date();
+                    let currDate2 = `${currDate.getFullYear()}-${(
+                      currDate.getMonth() + 1
+                    )
+                      .toString()
+                      .padStart(2, "0")}-${currDate
+                      .getDate()
+                      .toString()
+                      .padStart(2, "0")}`;
+
+                    if (data[d].isCompleted && dataDate == currDate2) {
+                      completedEnrollment++;
+                    }
+                  }
+
+                  $("#completed-enrollment").text(completedEnrollment);
+                } else {
+                  console.log("No data available");
+                }
+              });
+            }
+          }
+        });
+
+        let sfTimer = setTimeout(() => {
+          GetStudentGlobal()
+            .then((data) => {
+              let facilitiesArray = [];
+              let data2 = Object.keys(data);
+              let fCounter = 0;
+
+              for (let i = 0; i < data2.length; i++) {
+                let fname = data[data2[i]].fname;
+                let mname = data[data2[i]].mname.trim()[0];
+                mname = mname != undefined ? mname.toUpperCase() + "." : "";
+                let lname = data[data2[i]].lname;
+                let id = data[data2[i]].id;
+                let role = data[data2[i]].role;
+                let year = data[data2[i]].year;
+                let fullname = `${lname}, ${fname} ${mname}`;
+                let fullnameID = `${lname}, ${fname} ${mname} (${id})`;
+
+                if (role == "student") {
+                  facilitiesArray.push({
+                    value: fullname,
+                    key: fCounter,
+                    id: id,
+                    label: fullnameID,
+                    year: year,
+                  });
+                  fCounter++;
+                }
+              }
+
+              // Initialize ajax autocomplete:
+              $("#guard-name").autocomplete({
+                source: facilitiesArray,
+                select: (event, ui) => {
+                  event.preventDefault();
+                  const selectedId = ui.item.id;
+                  const selectedName = ui.item.value;
+                  const selectedGrade = WhatYear(ui.item.year);
+
+                  console.log(selectedId);
+                  StudentIDURL(selectedId)
+                    .then((url) => {
+                      $("#student-id-image").attr("src", url);
+                    })
+                    .catch(() => {});
+
+                  $("#guard-name").val(selectedName);
+                  $("#guard-grade").val(selectedGrade);
+                  $("#guard-adviser").val("~");
+                },
+                search: function (event, ui) {
+                  console.log("Test");
+                },
+              });
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }, 1100);
+      });
+    </script>
+  </body>
+</html>

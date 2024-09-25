@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      p.login100-form-title {
+        font-family: "Times New Roman", Times, serif;
+        color: red;
+      }
+    </style>
+
+    <title>Management • Teacher</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/iziToast.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="..assets/datatable/datatables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/datatable/dataTables.bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animate/animate.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animsition/css/animsition.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/select2/select2.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/daterangepicker/daterangepicker.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../css/util.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" />
+
+    <style type="text/css" rel="stylesheet">
+      input[type="radio"],
+      input[type="checkbox"] {
+        /* hide the inputs */
+        opacity: 0;
+        display: none;
+        margin: 0;
+      }
+
+      .group {
+        display: flex;
+        flex-direction: column; /* Or row, depending on your layout */
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* style your lables/button */
+      input[type="radio"] + label,
+      input[type="checkbox"] + label {
+        /* keep pointer so that you get the little hand showing when you are on a button */
+        cursor: pointer;
+        /* the following are the styles */
+        float: left;
+        padding: 4px 10px;
+        /* background: #efefef;
+    color: #aaa;
+    border: 1px solid #ccc; */
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0);
+      }
+
+      /* input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label{
+    background: #777;
+    border-color: #444;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+    color: white;
+} */
+
+      #Radio1[type="radio"]:checked + label,
+      #Radio1[type="checkbox"]:checked + label {
+        background: #beffd2;
+        border-color: #7dac8b;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+        color: black;
+      }
+
+      #Radio2[type="radio"]:checked + label,
+      #Radio2[type="checkbox"]:checked + label {
+        background: #ffbebe;
+        border-color: #af8585;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+        color: black;
+      }
+
+      #Radio3[type="radio"]:checked + label,
+      #Radio3[type="checkbox"]:checked + label {
+        background: #fffabe;
+        border-color: #b3af89;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+        color: black;
+      }
+
+      .radio-grades[type="radio"]:checked + label,
+      .radio-grades[type="checkbox"]:checked + label {
+        background: #c4ff9d;
+        border-color: #81b68a;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+        color: black;
+      }
+
+      .first {
+        border-radius: 4px 0 0 4px;
+      }
+
+      .last {
+        border-radius: 0 4px 4px 0;
+      }
+
+      #tbl-violation-list {
+        width: 100% !important;
+      }
+      .fc-daygrid-day {
+        cursor: pointer;
+      }
+
+      footer {
+        background: rgb(8, 87, 5);
+        padding: 20px;
+      }
+
+      footer p {
+        color: #fff;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: "Exo", sans-serif;
+      }
+
+      .context {
+        width: 100%;
+        position: absolute;
+        top: 50vh;
+      }
+
+      .context h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 50px;
+      }
+
+      .area {
+        /* background: #4e54c8; */
+        /* background: #325dad; */
+        /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8); */
+        width: 100%;
+        height: 100vh;
+      }
+
+      .circles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* background: url("/assets/img/rhs_building.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover; */
+      }
+
+      .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+      }
+
+      .circles li:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 2s;
+        animation-duration: 12s;
+      }
+
+      .circles li:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 4s;
+      }
+
+      .circles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 18s;
+      }
+
+      .circles li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 3s;
+      }
+
+      .circles li:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 7s;
+      }
+
+      .circles li:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 15s;
+        animation-duration: 45s;
+      }
+
+      .circles li:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 2s;
+        animation-duration: 35s;
+      }
+
+      .circles li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+
+      .modal-body {
+        height: 50vh;
+        width: 90% !important;
+        margin: auto;
+        transition: 0.5s;
+      }
+
+      .modal-dialog {
+        max-width: 90%;
+        /* margin: 0 auto; */
+      }
+
+      .dataTables_empty {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body
+    id="loginPage"
+    class="area"
+    style="overflow: hidden !important; background: rgb(216, 216, 216)"
+  >
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+            <li
+              class="nav-item text-center mx-lg-5 active"
+              style="margin: auto 0"
+            >
+              <a class="navbar-brand" href="#">
+                <img
+                  src="../assets/img/rizal2.png"
+                  width="100"
+                  height="100"
+                  class="d-inline-block align-top rizal-logo"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li class="nav-item text-center">
+              <div class="rizal-text">
+                <!-- <i class="fa fa-home fa-lg mb-1"></i> -->
+                TEACHER PROFILE
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-inline my-2 my-lg-0">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0 rizal-text-right"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <li
+              class="nav-item text-center mx-2 mx-lg-3 logout"
+              style="width: 120px"
+            >
+              <a class="nav-link logout-link" id="logout"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- List of Violation -->
+    <div
+      class="modal fade"
+      id="violation-list"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">~</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- <div class="form-group row">
+                <label for="inputModify" class="col-sm-2 col-form-label"
+                  >Student Name</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control clear"
+                    id="inputList"
+                    placeholder="Enter Student Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="button"
+                    class="form-control btn btn-light btn-clear"
+                    value="CLEAR"
+                    rfidStatus="TABLE"
+                  />
+                </div>
+              </div> -->
+              <div class="form-group row">
+                <br />
+              </div>
+
+              <div class="form-group row">
+                <!-- <label for="access-select" class="col-sm-2 col-form-label"
+                  >Found Violation</label
+                > -->
+                <div class="col-12">
+                  <table class="table table-striped" id="tbl-violation-list">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Student Name</th>
+                        <th scope="col">Violations</th>
+                        <th scope="col">Date Reported</th>
+                        <th scope="col">Reported By</th>
+                        <th scope="col">Cleared</th>
+                      </tr>
+                    </thead>
+                    <tbody id="document-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- <button
+                  type="button"
+                  id="btn-modify-access"
+                  class="btn btn-primary"
+                >
+                  Assign
+                </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Violation -->
+    <div
+      class="modal fade"
+      id="student-violation"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">~</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="inputModify" class="col-sm-2 col-form-label"
+                  >Student Name</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control clear"
+                    id="inputModify"
+                    placeholder="Enter Student Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="button"
+                    class="form-control btn btn-light btn-clear"
+                    value="CLEAR"
+                    rfidStatus="TABLE"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <br />
+              </div>
+
+              <div class="form-group row">
+                <label for="access-select" class="col-sm-2 col-form-label"
+                  >Found Violation</label
+                >
+                <div class="col-10">
+                  <table class="table table-striped" id="tbl-student-violation">
+                    <thead>
+                      <tr>
+                        <th scope="col">Student Name</th>
+                        <th scope="col">Violations</th>
+                        <th scope="col">Date Reported</th>
+                        <th scope="col">Reported By</th>
+                      </tr>
+                    </thead>
+                    <tbody id="document-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- <button
+              type="button"
+              id="btn-modify-access"
+              class="btn btn-primary"
+            >
+              Assign
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Requirements -->
+    <div
+      class="modal fade"
+      id="student-document"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">~</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="inputDoc" class="col-sm-2 col-form-label"
+                  >Student Name</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control clear"
+                    id="inputDoc"
+                    placeholder="Enter Student Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="button"
+                    class="form-control btn btn-light btn-clear"
+                    value="CLEAR"
+                    rfidStatus="TABLE2"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <br />
+              </div>
+
+              <div class="form-group row">
+                <label for="access-select" class="col-sm-2 col-form-label"
+                  >Document Requirements</label
+                >
+                <div class="col-10">
+                  <table class="table table-striped" id="tbl-student-document">
+                    <thead>
+                      <tr>
+                        <th scope="col">Document Submitted</th>
+                      </tr>
+                    </thead>
+                    <tbody id="submitted-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- <button
+              type="button"
+              id="btn-modify-access"
+              class="btn btn-primary"
+            >
+              Assign
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attendance Record -->
+    <div
+      class="modal fade"
+      data-bs-focus="false"
+      id="student-attendance"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">~</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="inputAttendance" class="col-sm-2 col-form-label"
+                  >Student Name</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control clear"
+                    id="inputAttendance"
+                    placeholder="Enter Student Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="button"
+                    class="form-control btn btn-light btn-clear"
+                    value="CLEAR"
+                    rfidStatus="TABLE"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <br />
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="access-select"
+                  class="col-sm-2 col-form-label"
+                ></label>
+                <div class="col-10">
+                  <table
+                    class="table table-striped"
+                    id="tbl-student-attendance"
+                  >
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col">Student Name</th> -->
+                        <th scope="col">Attendance</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Remarks</th>
+                      </tr>
+                    </thead>
+                    <tbody id="attendance-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="print-attendance"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Print
+            </button>
+            <!-- <button
+              type="button"
+              id="btn-modify-access"
+              class="btn btn-primary"
+            >
+              Assign
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade Record -->
+    <div
+      class="modal fade"
+      data-bs-focus="false"
+      id="student-grade"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">~</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="inputGrade" class="col-sm-2 col-form-label"
+                  >Student Name</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control clear"
+                    id="inputGrade"
+                    placeholder="Enter Student Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="button"
+                    class="form-control btn btn-light btn-clear"
+                    value="CLEAR"
+                    rfidStatus="TABLE"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <br />
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="access-select"
+                  class="col-sm-2 col-form-label"
+                ></label>
+                <div class="col-10">
+                  <table
+                    class="table table-striped"
+                    id="tbl-student-grade"
+                  >
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col">Student Name</th> -->
+                        <th scope="col">Grade</th>
+                        <th scope="col">School Year</th>
+                        <!-- <th scope="col"></th> -->
+                      </tr>
+                    </thead>
+                    <tbody id="grade-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="print-grade"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Print
+            </button>
+            <!-- <button
+               type="button"
+               id="btn-modify-access"
+               class="btn btn-primary"
+             >
+               Assign
+             </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid h-100 container-content text-center">
+      <!-- <div class="bg-login"></div> -->
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="col-12 access-text">Student Info</div>
+            <div class="row">
+              <!-- <div class="col-2">
+              </div> -->
+              <div class="col-4">
+                <div class="admin-accordion b" value="violation-list">
+                  List of Violations
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="admin-accordion a" value="student-violation">
+                  Search by Violations
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="admin-accordion c" value="student-document">
+                  Document Requirements
+                </div>
+              </div>
+              <!-- <div class="col-2">
+              </div> -->
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-4">
+                <div class="admin-accordion d" value="student-attendance">
+                  Attendance Record
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="admin-accordion d" value="student-grade">
+                  Grade Record
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../script/index.global.js"></script>
+    <script src="../vendor/animsition/js/animsition.min.js"></script>
+    <script src="../script/iziToast.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script
+      type="text/javascript"
+      src="../assets/datatable/datatables.min.js"
+    ></script>
+    <script src="../vendor/select2/select2.min.js"></script>
+
+    <script src="../vendor/daterangepicker/moment.min.js"></script>
+    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script src="../vendor/countdowntime/countdowntime.js"></script>
+
+    <script type="module" src="../script/app.js"></script>
+    <script src="../script/jquery-ui.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../script/jspdf.min.js"></script>
+    <script src="../script/html2canvas.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/teacher.js" defer></script>
+
+    <script>
+      $("#print-attendance").on("click", () => {
+        convertHTMLToPDF();
+      });
+
+
+      $("#print-grade").on("click", () => {
+        convertHTMLToPDF(1);
+      });
+
+      function convertHTMLToPDF(
+        filename = "Document_Request_" + GetDateGlobal(0)
+      ) {
+        //         var doc = new jsPDF();
+        // doc.fromHTML($('#document-table').html(), 15, 15, {
+        //   'width': 500,
+        //   'elementHandlers': function() {
+        //     return true;
+        //   }
+        // });
+        // doc.save('test.pdf');
+        let h = +$("#tbl-student-attendance").css("height").split("px")[0];
+        let w = +$("#tbl-student-attendance").css("width").split("px")[0];
+        let contactW = +$("#tbl-student-attendance")
+          .find("th")
+          .eq(2)
+          .css("width")
+          .split("px")[0];
+        w = w + contactW * 0.1;
+        const doc = new jsPDF("landscape", "px", [
+          w, //document.body.clientWidth,
+          h, //document.body.clientHeight,
+        ]);
+
+        const element = document.getElementById("tbl-student-attendance");
+
+        html2canvas(element, {
+          scale: 1, // Adjust scale for better quality (optional)
+        })
+          .then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            // const imgData = canvas.toDataURL('image/png');
+            const scaleFactor = calculateScaleFactor(canvas, doc);
+
+            const scaledWidth = canvas.width * scaleFactor;
+            const scaledHeight = canvas.height * scaleFactor;
+            doc.addImage(imgData, "PNG", 10, 10, scaledWidth, scaledHeight);
+
+            // doc.addImage(imgData, "PNG", 10, 10);
+            doc.save(filename);
+
+            iziToast.success({
+              title: "PDF Report Generated",
+              message: `Please see downloads to view file`,
+              icon: "fa fa-check",
+              // timeout: 10000
+            });
+          })
+          .catch((e) => {
+            console.log(e);
+            iziToast.warning({
+              title: "Failed to Generate PDF Report",
+              message: `Please try again`,
+              icon: "fa fa-exclamation",
+              // timeout: 10000
+            });
+          });
+      }
+
+      function calculateScaleFactor(canvas, doc) {
+        // Get document dimensions (assuming portrait orientation)
+        const docWidth = doc.internal.pageSize.width;
+        const docHeight = doc.internal.pageSize.height;
+
+        // Get canvas dimensions
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        // Calculate maximum allowed scaling based on document width
+        const maxWidthScale = docWidth / canvasWidth;
+
+        // Calculate maximum allowed scaling based on document height
+        const maxHeightScale = docHeight / canvasHeight;
+
+        // Determine the most restrictive scaling factor (fit to width or height)
+        const scaleFactor = Math.min(maxWidthScale, maxHeightScale);
+
+        // Apply a slight margin adjustment (optional)
+        return scaleFactor * 1; // Reduce scaling factor by 10% to add some margin
+      }
+    </script>
+  </body>
+</html>

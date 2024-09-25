@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      p.login100-form-title {
+        font-family: "Times New Roman", Times, serif;
+        color: red;
+      }
+    </style>
+
+    <title>Kiosk • Guard Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/bootstrap/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animsition/css/animsition.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/select2/select2.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/daterangepicker/daterangepicker.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../css/util.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" />
+
+    <style type="text/css" rel="stylesheet">
+      footer {
+        background: rgb(8, 87, 5);
+        padding: 20px;
+      }
+
+      footer p {
+        color: #fff;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: "Exo", sans-serif;
+      }
+
+      .context {
+        width: 100%;
+        position: absolute;
+        top: 50vh;
+      }
+
+      .context h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 50px;
+      }
+
+      .area {
+        /* background: #4e54c8; */
+        /* background: #325dad; */
+        /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8); */
+        width: 100%;
+        height: 100vh;
+      }
+
+      .circles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* background: url("/assets/img/rhs_building.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover; */
+      }
+
+      .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+      }
+
+      .circles li:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 2s;
+        animation-duration: 12s;
+      }
+
+      .circles li:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 4s;
+      }
+
+      .circles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 18s;
+      }
+
+      .circles li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+      }
+
+      .circles li:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 3s;
+      }
+
+      .circles li:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 7s;
+      }
+
+      .circles li:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 15s;
+        animation-duration: 45s;
+      }
+
+      .circles li:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 2s;
+        animation-duration: 35s;
+      }
+
+      .circles li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 11s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="loginPage" class="area" style="overflow: hidden !important">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <!-- <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <i class="fa-bars text-light"></i>
+                  </button> -->
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+            <li
+              class="nav-item text-center mx-lg-5 active"
+              style="margin: auto 0"
+            >
+              <a class="navbar-brand" href="#">
+                <img
+                  src="../assets/img/rizal2.png"
+                  width="100"
+                  height="100"
+                  class="d-inline-block align-top rizal-logo"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li class="nav-item text-center">
+              <div class="rizal-text">
+                <!-- <i class="fa fa-home fa-lg mb-1"></i> -->
+                GUARD PROFILE
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-inline my-2 my-lg-0">
+          <ul
+            class="navbar-nav mr-auto mt-2 mt-lg-0 rizal-text-right"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <!-- <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0"> -->
+
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="index.html">
+                <!-- <div>
+                    <i class="fa fa-home fa-lg mb-1"></i>
+                  </div> -->
+                Home</a
+              >
+            </li>
+
+            <li
+              class="nav-item text-center mx-2 mx-lg-3 logout"
+              style="width: 120px"
+            >
+              <a class="nav-link logout-link" id="logout"> LOGOUT </a>
+            </li>
+
+            <!--
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="#">
+                Request
+              </a>
+            </li>
+
+            <li class="nav-item text-center mx-2 mx-lg-3">
+              <a class="nav-link" href="login.html">
+                Login
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <div class="container-fluid h-100 container-content text-center">
+      <!-- <div class="bg-login"></div> -->
+
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-3">
+            <img
+              src="/assets/img/default-avatar.png"
+              alt="Default Avatar"
+              class="img-avatar"
+              id="student-id-image"
+              style="width: 200px;"
+            />
+          </div>
+          <div class="col-9">
+            <div class="containe-fluid">
+              <div class="row">
+                <div
+                  class="col-12 d-flex justify-content-start student-detail student-name"
+                >
+                  <div class="student-title">NAME:</div>
+                  &nbsp;
+                  <!-- <span id="name" >Juan D. Tamad</span> -->
+                  <input
+                    type="text"
+                    class="guard-input"
+                    id="guard-name"
+                    placeholder="Search Student name"
+                  />
+                </div>
+                <div
+                  class="col-12 d-flex justify-content-start student-detail student-year"
+                >
+                  <div class="student-title">GRADE:</div>
+                  &nbsp;
+                  <!-- <span id="year">TEACHER</span> -->
+                  <input
+                    type="text"
+                    class="guard-input"
+                    id="guard-grade"
+                    disabled
+                  />
+                </div>
+                <div
+                  class="col-12 d-flex justify-content-start student-detail student-phone"
+                >
+                  <div class="student-title">ADVISER:</div>
+                  &nbsp;
+                  <!-- <span id="phone">0923456789</span> -->
+                  <input
+                    type="text"
+                    class="guard-input"
+                    id="guard-adviser"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row other-details"> -->
+        <!-- <div class="col-3"> -->
+        <!-- <div class="col-content"> -->
+        <a href="incident.html">
+          <button id="incident-report-btn" class="">Incident Report</button>
+        </a>
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="col-3">
+            <div class="col-content">
+              <div class="col-title">Phone Number:</div>
+              <span>0959494999</span>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="col-content">
+              <div class="col-title">Requirements:</div>
+              <span>
+                <ul>
+                  <li>Form 137 (Grade 7) - to be followed up</li>
+                </ul></span
+              >
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="col-content">
+              <div class="col-title">Incident Report</div>
+              <span>
+                <ul>
+                  <li>N/A</li>
+                </ul></span
+              >
+            </div>
+          </div> -->
+      </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../vendor/animsition/js/animsition.min.js"></script>
+
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../vendor/select2/select2.min.js"></script>
+
+    <script src="../vendor/daterangepicker/moment.min.js"></script>
+    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script src="../vendor/countdowntime/countdowntime.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../script/jquery-ui.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script>
+      $(document).ready(() => {
+        let sfTimer = setTimeout(() => {
+          GetStudentGlobal()
+            .then((data) => {
+              let facilitiesArray = [];
+              let data2 = Object.keys(data);
+              let fCounter = 0;
+
+              for (let i = 0; i < data2.length; i++) {
+                let fname = data[data2[i]].fname;
+                let mname = data[data2[i]].mname.trim()[0];
+                mname = mname != undefined ? mname.toUpperCase() + "." : "";
+                let lname = data[data2[i]].lname;
+                let id = data[data2[i]].id;
+                let role = data[data2[i]].role;
+                let year = data[data2[i]].year;
+                let fullname = `${lname}, ${fname} ${mname}`;
+                let fullnameID = `${lname}, ${fname} ${mname} (${id})`;
+
+                if (role == "student") {
+                  facilitiesArray.push({
+                    value: fullname,
+                    key: fCounter,
+                    id: id,
+                    label: fullnameID,
+                    year: year,
+                  });
+                  fCounter++;
+                }
+              }
+
+              // Initialize ajax autocomplete:
+              $("#guard-name").autocomplete({
+                source: facilitiesArray,
+                select: (event, ui) => {
+                  event.preventDefault();
+                  const selectedId = ui.item.id;
+                  const selectedName = ui.item.value;
+                  const selectedGrade = WhatYear(ui.item.year);
+
+                  console.log(selectedId);
+                  StudentIDURL(selectedId)
+                  .then((url) => {
+                    $("#student-id-image").attr("src", url);
+                  }).catch(() => {
+
+                  });
+
+                  $("#guard-name").val(selectedName);
+                  $("#guard-grade").val(selectedGrade);
+                  $("#guard-adviser").val("~");
+                },
+                search: function( event, ui ) {
+                  console.log("Test");
+                }
+              });
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }, 1100);
+      });
+
+
+    </script>
+  </body>
+</html>

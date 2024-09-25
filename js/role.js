@@ -4,7 +4,7 @@ $(document).ready(function () { // Read role of the logged in user
   let loc = window.location.pathname.split("/")[2];
 
   $("#navigation").html('<div class="logo" style="text-align: center"> \
-  <img style="width: 40%" src="assets/img/favicon.ico" > \
+  <img style="width: 40%" src="../assets/img/favicon.ico" > \
   <a href="#" class="simple-text"> \
   Theresian School of Cavite </a> </div> <ul class="nav users"> \
   <li id="nav_dashboard"> <a href="dashboard.php"> <i class="pe-7s-graph"></i> <p>Dashboard</p> </a> </li> \
