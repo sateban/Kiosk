@@ -955,23 +955,23 @@ button.accordion-button:focus {
 
 @font-face {
   font-family: "Bogart";
-  src: url("/assets/fonts/Bogart-Bold-Italic-trial.ttf");
+  src: url("./assets/fonts/Bogart-Bold-Italic-trial.ttf");
 }
 
 @font-face {
   font-family: "Sonny";
-  src: url("/assets/fonts/sonny.otf");
+  src: url("./assets/fonts/sonny.otf");
 }
 
 @font-face {
   font-family: "Sagata";
-  src: url("/assets/fonts/sagata.ttf");
+  src: url("./assets/fonts/sagata.ttf");
 }
 
 @font-face {
   font-family: "Shapirit";
-  src: url("/assets/fonts/shapirit.woff2") format("woff2"),
-    url("/assets/fonts/shapirit.woff") format("woff");
+  src: url("./assets/fonts/shapirit.woff2") format("woff2"),
+    url("./assets/fonts/shapirit.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
