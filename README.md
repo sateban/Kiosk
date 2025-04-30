@@ -1,4 +1,4 @@
-# 📚 campus-kiosk
+# 📚 Campus Kiosk
 
 A centralized on-campus kiosk system designed to streamline student and faculty tasks such as enrollment, document requests, grade management, and student behavior reporting. The system leverages RFID-based login to securely access personalized functionalities.
 
