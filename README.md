@@ -44,5 +44,5 @@ Make sure you have the following:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/campus-kiosk.git
+   git clone https://github.com/sateban/campus-kiosk.git
    cd campus-kiosk
